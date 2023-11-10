@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+.image1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+ .image2 {
+            width: 100%;
+        }
+.text1 {
+            position: absolute;
+            top: 250px; /* Adjust the vertical position to place it at the top of the second div */
+            left: 940px; /* Adjust the horizontal position to place it at the left of the second div */
+           font-family: 'Helvetica', sans-serif;
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-size: 18px;
+            color: black; /* Set the text color to black */
+            z-index: 3; /* Place this div on top of both images */
+opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.text1.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+ #Next { /* Changed the selector to #Next for the "Next" button */
+            position: absolute;
+            left: 1130px;
+            top: 650px; /* Adjust the top position as needed */
+            width: 200px;
+            height: 50px;
+            background-color: #f7b136;
+            z-index: 3; /* Place this div on top of the images */
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-family: 'Helvetica', sans-serif;
+            border-radius: 10px; /* Add rounded corners */
+        }
+</style>
+
+<body style="background-color: #f2c499;"> <!-- Change the background color here -->
+    <div class="image-container">
+<div id="Next">
+        <a href="question5.html">Next</a>
+        </div>
+<div class="text1 fade-in">
+Arjun’s mother asks him to collect the <br> groceries that they ordered on a gorcery <br> app. They have been ordering their groceries <br> more frequently due to the pandemic.
+
+</div>
+       <img src="soni1box.png" class="image1">
+        <img src="arjun4.jpg" class="image2">
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function checkVisibility() {
+                $('.fade-in').each(function () {
+                    var element = $(this);
+                    var top_of_element = element.offset().top;
+                    var bottom_of_element = top_of_element + element.outerHeight();
+                    var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
+                    var top_of_screen = $(window).scrollTop();
+
+                    if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element) && !element.hasClass('visible')) {
+                        element.addClass('visible');
+                    }
+                });
+            }
+
+            // Initial check on page load
+            checkVisibility();
+
+            // Check visibility on scroll
+            $(window).scroll(function () {
+                checkVisibility();
+            });
+        });
+    </script>
+</body>
+<html>

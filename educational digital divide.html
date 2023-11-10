@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .chart-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            /* Add your positioning styles here */
+            position: absolute;
+            top: 180px;
+            left: 10px;
+        }
+
+ #Next { /* Changed the selector to #Next for the "Next" button */
+            position: absolute;
+            left: 1210px;
+            top: 670px; /* Adjust the top position as needed */
+            width: 200px;
+            height: 50px;
+            background-color: #f7b136;
+            z-index: 3; /* Place this div on top of the images */
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-family: 'Helvetica', sans-serif;
+            border-radius: 10px; /* Add rounded corners */
+        }
+.text {
+            position: absolute;
+            top: 150px; /* Adjust the vertical position to place it at the top of the second div */
+            left: 40px; /* Adjust the horizontal position to place it at the left of the second div */
+           font-family: 'Helvetica', sans-serif;
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-size: 18px;
+            color: black; /* Set the text color to black */
+}
+ #text-on-side {
+            position: absolute;
+            top: 220px; /* Adjust the vertical position as needed */
+            right: 100px; /* Adjust the horizontal position to place it on the right side */
+            font-family: 'Helvetica', sans-serif;
+            font-size: 16px;
+            color: black;
+        }
+.image1 {
+            position: absolute;
+            top: 0;
+            left: 650px;
+            z-index: -1; /* Set a lower z-index to place it behind the text */
+        }
+
+    </style>
+</head>
+<body>
+<h1 style="position: absolute;top: 40px;left: 70px;font-family: 'Helvetica', sans-serif;"> Digital Divide in Education </h1>
+<div class="text">Children with Access to Online Education during the Pandemic</div>
+
+<div class="chart-container">
+    <canvas id="myChart"></canvas>
+</div>
+<div>
+<img src="textbox2.png" class="image1">
+    </div>
+<div id="text-on-side">
+<p>
+
+Only 20 per cent of school-age children in India had access to remote education during <br> the pandemic, of whom only half participated in live online lessons. According to a <br> recent Oxfam research, up to 80% of Indian students were unable to access online <br> learning during the lockdown, and many may not return to their classes after the epidemic <br> is over.The pandemic led to an increased risk of a large number of girls dropping out <br> of their schools permanently; one of the estimates suggested that around 11 million girls <br> would not return to school when the crisis is over.In fact, 38 per cent of households <br> said at least one child had dropped out of school due to Covid-19.
+
+
+</p>
+</div>
+
+<div id="Next">
+        <a href="arjun3.html">Next</a>
+        </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+    var xValues = ["Children with access", "Children without"];
+    var yValues = [20, 80];
+    var barColors = ["#b91d47", "#00aba9"];
+
+    new Chart("myChart", {
+        type: "pie",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: ""
+            }
+        }
+    });
+</script>
+</body>
+</html>
+
+

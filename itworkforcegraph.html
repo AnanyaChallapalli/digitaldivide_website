@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<style>
+#myChart {
+  width: 50%; /* Adjust the width as needed */
+  max-width: 600px;
+  margin-left:0px; /* Center the chart horizontally */
+  margin-top: 140px; /* Adjust the top margin as needed */
+}
+#Next { /* Changed the selector to #Next for the "Next" button */
+            position: absolute;
+            left: 1130px;
+            top: 650px; /* Adjust the top position as needed */
+            width: 200px;
+            height: 50px;
+            background-color: #f7b136;
+            z-index: 3; /* Place this div on top of the images */
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-family: 'Helvetica', sans-serif;
+            border-radius: 10px; /* Add rounded corners */
+        }
+#text-on-side {
+            position: absolute;
+            top: 200px; /* Adjust the vertical position as needed */
+            right: 90px; /* Adjust the horizontal position to place it on the right side */
+            font-family: 'Helvetica', sans-serif;
+            font-size: 16px;
+            color: black;
+        }
+.image1 {
+            position: absolute;
+            top: 0;
+            left: 650px;
+            z-index: -1; /* Set a lower z-index to place it behind the text */
+        }
+</style>
+<body>
+<h1 style="position: absolute;top: 10px;left: 70px;font-family: 'Helvetica', sans-serif;"> Discrimination in IT Sector </h1>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+<div>
+<img src="textbox2.png" class="image1">
+    </div>
+<div id="text-on-side">
+<p>
+“Since Hindu upper castes constitute almost 67% of engineering and technology graduates, <br> it would not be surprising to find that upwards of 70% of the IT workforce are upper caste,”<br> wrote Carol Upadhya in her 2007 paper “Employment, Exclusion and ‘Merit’ in the Indian <br> IT Industry." In the year 2009, a study in Chennai said that the lowest job application callbacks <br> in the private sector are received by dalit women. In the year 2020, a group of 30 female <br> Indian engineers who are members of the Dalit caste and work for Google, Apple, Microsoft, <br>Cisco and other tech companies say they have faced caste bias inside the U.S. tech sector. <br><br>
+As we can see, there is a caste based bias in the tech industry making it difficult for people <br> of lower castes to work in the tech sector. 
+
+</p>
+</div>
+<div id="Next">
+        <a href="soni3.html">Next</a>
+        </div>
+
+<script>
+var xValues = ["Upper castes", "Lower castes"];
+var yValues = [70, 30];
+var barColors = [
+  "#de7a45",
+  "#1f378c"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Employment in IT Sector in India"
+    }
+  }
+});
+</script>
+
+</body>
+</html>
+

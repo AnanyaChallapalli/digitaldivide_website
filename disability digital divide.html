@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .text {
+            position: absolute;
+            top: 120px;
+            left: 60px;
+            font-family: 'Helvetica', sans-serif;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 50px;
+            font-size: 18px;
+            color: black;
+        }
+
+        .chart-container {
+            position: absolute;
+            top: 140px;
+            left: 60px;
+        }
+#text-on-side {
+            position: absolute;
+            top: 210px; /* Adjust the vertical position as needed */
+            right: 100px; /* Adjust the horizontal position to place it on the right side */
+            font-family: 'Helvetica', sans-serif;
+            font-size: 16px;
+            color: black;
+        }
+
+ #Next { /* Changed the selector to #Next for the "Next" button */
+            position: absolute;
+            left: 1210px;
+            top: 670px; /* Adjust the top position as needed */
+            width: 200px;
+            height: 50px;
+            background-color: #f7b136;
+            z-index: 3; /* Place this div on top of the images */
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-family: 'Helvetica', sans-serif;
+            border-radius: 10px; /* Add rounded corners */
+        }
+.image1 {
+            position: absolute;
+            top: 0;
+            left: 650px;
+            z-index: -1; /* Set a lower z-index to place it behind the text */
+        }
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body>
+<h1 style="position: absolute;top: 10px;left: 70px;font-family: 'Helvetica', sans-serif;"> Disability Digital Divide </h1>
+<div class="text">Disability Gap in Mobile Internet Usage in India</div>
+<div class="chart-container">
+    <canvas id="myChart" width="350" height="400"></canvas>
+</div>
+<div>
+<img src="textbox2.png" class="image1">
+    </div>
+<div id="text-on-side">
+<p>
+Only 27% of disabled persons use Mobile internet compared to 40% of non-disabled <br> persons. Mobiles play an important role in helping persons with disabilities to live <br> independent lives and access basic services. Smartphones can put multiple assistive <br> technologies into one device, enabling more independent living for persons with disabilities <br> but according to research, people with disabilities are less likely than non-disabled <br> persons to own a mobile, especially a smartphone, and to be aware of or use <br> mobile internet. Key barriers to using mobile for persons with disabilities include the <br> disability itself, awareness of accessibility features, affordability and levels of <br> literacy and skills.
+</p>
+</div>
+<div id="Next">
+        <a href="arjun4.html">Next</a>
+        </div>
+<script>
+    var xValues = ["Disabled persons", "Non-Disabled persons"];
+    var yValues = [27, 40];
+    var barColors = ["#1f378c", "#de7a45"];
+
+    new Chart("myChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+            },
+            scales: {
+                x: {
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.9,
+                },
+               yAxes: [{
+            display: true,
+            ticks: {
+               
+                beginAtZero: true   // minimum value will be 0.
+            }
+        }]
+            }
+        }
+    });
+</script>
+</body>
+</html>

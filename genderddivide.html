@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Bar Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <style>
+        .chart-container {
+            width: 100%;
+            max-width: 500px;
+            margin-top: 70px;
+            margin-bottom: 10px;
+            margin-left: 80px;
+            margin-right: auto;
+        }
+        .chart {
+            margin: 10px 0;
+            text-align: left;
+        }
+        .text {
+            position: absolute;
+            top: 80px;
+            left: 70px;
+            font-family: 'Helvetica', sans-serif;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 50px;
+            font-size: 18px;
+            color: black;
+        }
+        .text1 {
+            position: absolute;
+            top: 440px;
+            left: 70px;
+            font-family: 'Helvetica', sans-serif;
+            text-align: left;
+            font-size: 18px;
+            color: black;
+        }
+        #text-on-side {
+            position: absolute;
+            top: 190px;
+            right: 150px;
+            font-family: 'Helvetica', sans-serif;
+            font-size: 16px;
+            color: black;
+            z-index: 1; /* Set a higher z-index to place it above the image */
+        }
+        #Next {
+            position: absolute;
+            left: 1210px;
+            top: 670px;
+            width: 200px;
+            height: 50px;
+            background-color: #f7b136;
+            z-index: 3;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 50px;
+            font-family: 'Helvetica', sans-serif;
+            border-radius: 10px;
+        }
+        .image1 {
+            position: absolute;
+            top: 0;
+            left: 650px;
+            z-index: -1; /* Set a lower z-index to place it behind the text */
+        }
+    </style>
+</head>
+<body>
+    <h1 style="position: absolute;top: 10px;left: 70px;font-family: 'Helvetica', sans-serif;"> Gender Based Digital Divide </h1>
+    <div class="text">Internet Penetration of Active Users in India in 2021</div>
+    <br>
+    <br>
+    <div class="chart-container">
+        <div class="chart">
+            <canvas id="multiBarChart" ></canvas>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="text1">Ownership of Mobile Phones in India in 2021</div>
+    <div class="chart-container">
+        <div class="chart">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <div id="text-on-side">
+        <!-- Add your text here -->
+        <p>As you can see, there is a huge gap between the amount of men using the <br> internet and the amount of women using the internet. There is also a big gap <br> between men and women living in urban and rural areas. Internet penetration <br> of men living in urban and rural areas is 71% and 54% respectively while that <br> of women living in urban and rural areas is 57% and 34% respectively.In the <br> year 2021, 49% of men owned mobile phones compared to only 26% of women. <br> This gendered digital divide is often a result of a triple disadvantage for women <br> in India. <br><br> First, there is a rural-urban digital divide, where rural internet penetration  is <br> only 29% compared to the national average of 51%.<br><br>
+        Second, there is an income-based digital divide between households preventing<br>  women from these households from owning digital devices. <br><br>
+        Finally, discrimination within the household prevents women from equitably <br> accessing digital devices within the domestic sphere, which in turn widens the <br> gender-based digital divide.
+     </p>
+    </div>
+    <div id="Next">
+        <a href="soni2.html">Next</a>
+    </div>
+    <div>
+    <img src="textbox.png" class="image1">
+        </div>
+
+    <script>
+        // Get the canvas element for the first chart
+        var ctx = document.getElementById('multiBarChart').getContext('2d');
+
+        // Define data for the first chart
+        var data = {
+            labels: ['All India', 'Urban India', 'Rural India'],
+            datasets: [
+                {
+                    label: 'Men',
+                    data: [60, 71, 54],
+                    backgroundColor: 'rgba(31, 55, 140, 1)',
+                    borderColor: 'rgba(31, 55, 140, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Women',
+                    data: [42, 57, 34],
+                    backgroundColor: 'rgba(222, 122, 69, 0.7)',
+                    borderColor: 'rgba(222, 122, 69, 0.7)',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        // Create the first chart
+        var multiBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                   yAxes: [{
+            display: true,
+            ticks: {
+               
+                beginAtZero: true   // minimum value will be 0.
+            }
+        }]
+                }
+            }
+        });
+
+// Get the canvas element for the second chart
+var secondCtx = document.getElementById('myChart').getContext('2d');
+
+// Define data for the second chart
+var secondData = {
+    labels: ['Men', 'Women'],
+    datasets: [
+        {
+            label: 'Population',
+            data: [49, 26],
+            backgroundColor: ["#1f378c", "#de7a45"],
+        }
+    ]
+};
+
+// Create the second chart
+new Chart(secondCtx, {
+    type: 'bar',
+    data: secondData,
+    options: {
+        legend: {
+            display: false, // Hide the legend
+        },
+        scales: {
+                    yAxes: [{
+            display: true,
+            ticks: {
+               
+                beginAtZero: true   // minimum value will be 0.
+            }
+        }]
+
+        },
+        plugins: {
+            datalabels: {
+                anchor: 'end',
+                align: 'end',
+                font: {
+                    size: 12,
+                }
+            }
+        }
+    }
+});
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+

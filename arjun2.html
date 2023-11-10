@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+.image1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.image2 {
+    width: 100%;
+}
+
+.text1 {
+    position: absolute;
+    top: 300px;
+    left: 950px;
+    font-family: 'Helvetica', sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 18px;
+    color: black;
+    z-index: 3;
+opacity:0;
+    transform: translateY(20px);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.text1.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#Next {
+    position: absolute;
+    left: 1130px;
+    top: 650px;
+    width: 200px;
+    height: 50px;
+    background-color: #f7b136;
+    z-index: 3;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-family: 'Helvetica', sans-serif;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body style="background-color: #f2c499;"> <!-- Change the background color here -->
+    <div class="image-container">
+        <div id="Next">
+            <a href="question2.html">Next</a>
+        </div>
+        <div class="text1 fade-in">
+            Meanwhile, Arjun is attending his online <br> class through his family’s laptop.
+        </div>
+        <img src="soni1box.png" class="image1 fade-in">
+        <img src="arjun2.jpg" class="image2">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function checkVisibility() {
+                $('.fade-in').each(function() {
+                    var top_of_element = $(this).offset().top;
+                    var bottom_of_element = top_of_element + $(this).outerHeight();
+                    var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
+                    var top_of_screen = $(window).scrollTop();
+
+                    if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)) {
+                        $(this).addClass('visible');
+                    } else {
+                        $(this).removeClass('visible');
+                    }
+                });
+            }
+
+            // Initial check on page load
+            checkVisibility();
+
+            // Check visibility on scroll
+            $(window).scroll(function() {
+                checkVisibility();
+            });
+        });
+    </script>
+</body>
+</html>
