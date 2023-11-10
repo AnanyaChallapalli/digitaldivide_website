@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* 100% of the viewport height */
+        }
+
+        .image1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .image2 {
+            width: 100%;
+        }
+
+        #d2 {
+            position: absolute;
+            left: 510px;
+            top: 650px;
+            width: 400px;
+            height: 50px;
+            background-color: #f7b136;
+            z-index: 2; /* Place this div on top of the images */
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-family: 'Helvetica', sans-serif;
+            border-radius: 10px; /* Add rounded corners */
+        }
+
+        #Next { /* Changed the selector to #Next for the "Next" button */
+            position: absolute;
+            left: 510px;
+            top: 850px; /* Adjust the top position as needed */
+            width: 400px;
+            height: 50px;
+            background-color: #f7b136;
+            z-index: 3; /* Place this div on top of the images */
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-family: 'Helvetica', sans-serif;
+            border-radius: 10px; /* Add rounded corners */
+        }
+
+        .text {
+            position: absolute;
+            top: 360px; /* Adjust the vertical position to place it at the top of the second div */
+            left: 710px; /* Adjust the horizontal position to place it at the left of the second div */
+           font-family: 'Helvetica', sans-serif;
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-size: 18px;
+            color: black; /* Set the text color to black */
+            z-index: 4; /* Place this div on top of both images */
+        }
+.text1 {
+            position: absolute;
+            top: 500px; /* Adjust the vertical position to place it at the top of the second div */
+            left: 450px; /* Adjust the horizontal position to place it at the left of the second div */
+           font-family: 'Helvetica', sans-serif;
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-size: 28px;
+            color: black; /* Set the text color to black */
+            z-index: 3; /* Place this div on top of both images */
+        }
+.text2 {
+            position: absolute;
+            top: 390px; /* Adjust the vertical position to place it at the top of the second div */
+            left: 490px; /* Adjust the horizontal position to place it at the left of the second div */
+           font-family: 'Helvetica', sans-serif;
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-size: 18px;
+            color: black; /* Set the text color to black */
+            z-index: 4; /* Place this div on top of both images */
+        }
+.fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body style="background-color: #f2c499;"> <!-- Change the background color here -->
+    <div class="image-container">
+        <img src="Fade in.png" class="image1">
+        <img src="Untitled (25).jpg" class="image2">
+    </div>
+
+    <div class="image-container" id="secondDiv"> <!-- Add id to the second div -->
+
+        <div class="text" class="text fade-on-scroll">Hi everyone.My name is Soni. <br> I’m 10 years old and I live in a <br> small village in Karnataka. <br></div>
+        <img src="Untitled (28).png" class="image1">
+        <img src="Untitled (28).jpg" class="image2">
+    </div>
+
+    <div class="image-container" class="text" id="thirdDiv" style="top: 350px;"> <!-- Add id to the third div and adjust top position -->
+<div class="text2">Hi everyone.My name is Arjun. <br> I’m also 10 years old and I <br> live in Bangalore. <br></div>
+
+        <img src="Untitled (29).png" class="image1" class="text fade-in">
+        <img src="Untitled (29).jpg" class="image2" class="text fade-in">
+    </div>
+    <div class="image-container" id="fourthDiv" style="top: 500px;"> <!-- Add id to the fourth div and adjust top position -->
+        <div id="Next"><a href="soni1.html">
+            Next </a>
+        </div>
+<div class="text1" class="text">
+Let's follow a day
+in the life of Soni and Arjun...
+</div>
+        <img src="Untitled (30)p2.png" class="image1">
+        <img src="Untitled (30).jpg" class="image2">
+    </div>
+    
+    <div id="d2">
+        <a href="#secondDiv" class="scroll-link">Meet Soni and Arjun</a> <!-- Link to the second div -->
+    </div>
+<script>
+    $(document).ready(function() {
+        $(".scroll-link").on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+
+                var hash = this.hash;
+                var targetOffset = $(hash).offset().top;
+
+                // Adjust the value (e.g., +50) to scroll a little lower or higher
+                var adjustedOffset = targetOffset + 150;
+
+                $('html, body').animate({
+                    scrollTop: adjustedOffset
+                }, 1000, function(){
+                    window.location.hash = hash;
+                });
+            }
+        });
+    });
+
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

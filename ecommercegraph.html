@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+.image1 {
+            position: absolute;
+            top: 0;
+            left: 650px;
+            z-index: -1; /* Set a lower z-index to place it behind the text */
+        }
+.chart-container {
+    position: absolute;
+    top: 100px; /* Adjust the top position as needed */
+    left: 50px; /* Adjust the left position as needed */
+    width: 80%; /* Adjust the width as needed */
+    max-width: 600px;
+}
+
+#text-on-side {
+            position: absolute;
+            top: 180px; /* Adjust the vertical position as needed */
+            right: 120px; /* Adjust the horizontal position to place it on the right side */
+            font-family: 'Helvetica', sans-serif;
+            font-size: 16px;
+            color: black;
+        }
+#Next { /* Changed the selector to #Next for the "Next" button */
+            position: absolute;
+            left: 1130px;
+            top: 650px; /* Adjust the top position as needed */
+            width: 200px;
+            height: 50px;
+            background-color: #f7b136;
+            z-index: 3; /* Place this div on top of the images */
+            text-align: center; /* Center the text horizontally */
+            vertical-align: middle; /* Center the text vertically */
+            line-height: 50px; /* Line height equal to the div height for vertical centering */
+            font-family: 'Helvetica', sans-serif;
+            border-radius: 10px; /* Add rounded corners */
+        }
+        .chart-container {
+            position: absolute;
+            top: 100px; /* Adjust the top position as needed */
+            left: 10px; /* Adjust the left position as needed */
+            width: 80%; /* Adjust the width as needed */
+            max-width: 600px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+<h1 style="position: absolute;top: 10px;left: 70px;font-family: 'Helvetica', sans-serif;"> Digital Divide in Ecommerce </h1>
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+<img src="textbox2.png" class="image1">
+    </div>
+<div id="text-on-side">
+<p>
+Only 10% of Indian MSMEs (Miro Small and Medium Enterprises) have embraced <br> e-commerce. For those who have, they have experienced increased sales, profitability, <br> and market penetration. However, for the remaining 90%, the rise of digital commerce <br> is not an opportunity, but a threat. On one hand, MSMEs that have integrated into <br> digital platforms are reaping significant benefits. A striking 35.5% of e-commerce <br> integrated MSMEs reported a turnover between Rs 10 million and Rs 500 million <br> in the 2021-22 financial year. Contrastingly, only 15.6% of non-integrated MSMEs <br> achieved this scale of turnover. <br><br>
+The lack of technology adoption can limit the ability of MSMEs to innovate, optimise <br> their operations, and scale their business. Sometimes, MSMEs often face challenges <br> in accessing technology due to the high cost of investment, lack of awareness, and <br> limited technical expertise.
+
+</p>
+</div>
+<div id="Next">
+        <a href="conclusion.html">Next</a>
+        </div>
+
+
+    <script>
+        var xValues = ["those not benefiting", "those benefiting"];
+        var yValues = [90, 10];
+        var barColors = [
+            "#b91d47",
+            "#00aba9",
+        ];
+
+        new Chart("myChart", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "MSMEs benefiting from ecommerce"
+                }
+            }
+        });
+    </script>
+</body>
+</html>
